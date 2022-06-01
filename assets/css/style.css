@@ -6,20 +6,20 @@
 }
 
 .container {
-    min-height: 100vh;
     display: grid;
     grid-template-areas:
         "menu"
         "serch"
         "main"
         "footer";
-    grid-template-rows: 100px 100px auto 100px;
+    grid-template-rows: 10% 10% auto 10%;
+    min-height: 100vh;
+
 }
 
 menu {
     background: green;
     grid-area: menu;
-
 }
 
 .serch {
@@ -30,36 +30,61 @@ menu {
 main {
     background: gray;
     grid-area: main;
+    display: grid;
+    grid-template-areas:
+        "cards"
+        "pags";
+    grid-template-rows: auto 10%;
+    height: 100%;
+}
+
+main .cardContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
+    grid-area: cards;
+
 }
 
-main .card {
+main .cardContainer .card {
     width: 300px;
     display: flex;
     flex-direction: column;
     text-align: center;
     align-content: center;
+    justify-content: space-evenly;
     background: white;
-    margin: 10px 0px 10px 0px;
+
 }
 
-main .card .cardImg {
+main .cardContainer .card .cardImg {
     overflow: hidden;
 }
 
-main .card .cardImg img {
+main .cardContainer .card .cardImg img {
     width: 100%;
 }
 
-main .card .cardBody {
-  display: flex;
-  flex-direction: column;
+main .cardContainer .card .cardBody {
+    display: flex;
+    flex-direction: column;
 }
-main .card .cardBody button {
-    align-items:stretch;
+
+main .cardContainer .card .cardBody button {
+    align-items: stretch;
+}
+
+main .cardPag {
+    text-align: center;
+    grid-area: pags;
+}
+
+main .cardPag a {
+    color: blue;
+    padding: 7px;
+    background: gray;
+    border: 1px solid blue;
 }
 
 footer {
@@ -67,11 +92,18 @@ footer {
     grid-area: footer;
 }
 
+@media (max-width: 575px) {
 
-
-
-
-
+    #card2,
+    #card3,
+    #card4,
+    #card5,
+    #card6,
+    #card7,
+    #card8 {
+        display: none;
+    }
+}
 
 /* @media (max-width: 576px) {
     body {
