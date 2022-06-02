@@ -2,7 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'fantasy', Arial, sans-serif;
+    font-family: monospace, Arial, sans-serif;
 }
 
 .container {
@@ -11,7 +11,7 @@
         "menu serch"
         "menu main"
         "footer main";
-    grid-template-rows: 5% auto 5%;
+    grid-template-rows: 7% auto 8%;
     grid-template-columns: 15% auto;
     min-height: 100vh;
 
@@ -19,10 +19,11 @@
 
 menu {
     background: black;
+    color: white;
     grid-area: menu;
     display: flex;
     flex-direction: column;
-
+    text-align: center;
 }
 
 menu .menu-logo {
@@ -33,27 +34,38 @@ menu .menu-logo img {
     width: 100%;
 }
 
+menu .menu-body .categorias {
+    justify-content: center;
+}
+
+menu .icono-hamburgesa {
+    display: none;
+}
+
 .serch {
     background: yellow;
     grid-area: serch;
     text-align: center;
-    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
 }
 
 .serch .container-select {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+
 }
 
 .serch .container-select select {
- 
-    padding-left: 38%;
-    padding-right: 38%;
+
+    padding-left: 35%;
+    padding-right: 35%;
 }
 
 main {
-    
+
     grid-area: main;
     display: grid;
     grid-template-areas:
@@ -75,22 +87,22 @@ main .card-container {
 }
 
 main .card-container .card {
-    height: 390px;
+    height: 300px;
     display: flex;
     flex-direction: column;
     text-align: center;
     align-content: center;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 
-    2px 2px 5px 1px rgba(0,0,0,0.2),
-    6px 6px 7px 0px rgba(0,0,0,0.2);
+    box-shadow:
+        2px 2px 5px 1px rgba(0, 0, 0, 0.2),
+        6px 6px 7px 0px rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     overflow: hidden;
 }
 
 main .card-container .card .card-img {
-    width: 60%;
+    width: 40%;
     overflow: hidden;
 }
 
@@ -98,7 +110,7 @@ main .card-container .card .card-img {
 main .card-container .card .card-img img {
     width: 100%;
 
-}   
+}
 
 main .card-container .card .card-body {
     display: flex;
@@ -107,10 +119,13 @@ main .card-container .card .card-body {
 }
 
 main .card-container .card .card-btns {
-background: black;
-display: flex;
-justify-content: center;
-align-items: center;
+    background: black;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 main .card-container .card .card-btns .input-cantidad {
@@ -120,20 +135,25 @@ main .card-container .card .card-btns .input-cantidad {
     border-radius: 15px;
 }
 
-main .card-container .card .card-btns .btn-menos, .btn-mas {
+main .card-container .card .card-btns .btn-menos,
+.btn-mas {
     border: none;
     color: white;
-    font-size: 2rem;
+
     background: black;
-    padding: 10px;
+    padding: 10px 10px 10px 10px;
+    border-radius: 25%;
+
 }
-main .card-container .card .card-btns .btn-agregar{
+
+main .card-container .card .card-btns .btn-agregar {
     background-color: yellow;
     border: none;
     height: 40px;
     padding: 10px;
     margin-right: 10px;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: 900;
     border-radius: 15px;
 }
 
@@ -148,11 +168,10 @@ main .card-pag {
 }
 
 main .card-pag a {
-    color: blue;
+    color: black;
     padding: 7px;
-    background: gray;
-    border: 1px solid blue;
-    
+    background: yellow;
+    border: 1px solid black;
 
 }
 
@@ -160,7 +179,51 @@ footer {
     background: yellow;
     grid-area: footer;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 15px;
 }
+
+/* hover */
+menu .categorias:hover {
+    background-color: yellow;
+    box-shadow: 10px 10px 25px 0 rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: black;
+    transition: 0.5s;
+}
+
+main .card-container .card:hover {
+    box-shadow: 10px 10px 25px 0 rgba(0, 0, 0, 0.1);
+    transform: translate(1px);
+    transition: 0.5s;
+}
+
+main .card-container .card .card-btns .btn-menos:hover,
+.btn-mas:hover {
+    background-color: yellow;
+    box-shadow: 10px 10px 25px 0 rgba(0, 0, 0, 0.5);
+    transition: 0.5s;
+    color: black;
+    border-radius: 25%;
+}
+
+main .card-container .card .card-btns .btn-agregar:hover {
+    background-color: red;
+    transition: 0.5s;
+}
+
+main .card-pag a:hover {
+    background-color: red;
+    transition: 0.5s;
+}
+
+
+
+/* media */
 
 @media (max-width: 575px) {
     .container {
@@ -172,7 +235,10 @@ footer {
         grid-template-rows: 10% 10% auto 10%;
         grid-template-columns: auto;
     }
-
+    main .card-container .card {
+        height: 90%;
+        width: 90%;
+    }
     #card-2,
     #card-3,
     #card-4,
@@ -184,15 +250,22 @@ footer {
     }
 
     menu {
-        background: green;
         justify-content: space-between;
         align-items: center;
         flex-direction: row;
     }
+
     menu .menu-logo {
-        width: 38%;
+        width: 20%;
     }
 
+    menu .menu-body {
+        display: none;
+    }
+
+    menu .icono-hamburgesa {
+        display: flex;
+        margin-right: 10%;
+    }
 
 }
-
