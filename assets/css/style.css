@@ -8,78 +8,143 @@
 .container {
     display: grid;
     grid-template-areas:
-        "menu"
-        "serch"
-        "main"
-        "footer";
-    grid-template-rows: 10% 10% auto 10%;
+        "menu serch"
+        "menu main"
+        "footer main";
+    grid-template-rows: 5% auto 5%;
+    grid-template-columns: 15% auto;
     min-height: 100vh;
 
 }
 
 menu {
-    background: green;
+    background: black;
     grid-area: menu;
+    display: flex;
+    flex-direction: column;
+
+}
+
+menu .menu-logo {
+    width: 100%;
+}
+
+menu .menu-logo img {
+    width: 100%;
 }
 
 .serch {
-    background: red;
+    background: yellow;
     grid-area: serch;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.serch .container-select {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.serch .container-select select {
+ 
+    padding-left: 38%;
+    padding-right: 38%;
 }
 
 main {
-    background: gray;
+    
     grid-area: main;
     display: grid;
     grid-template-areas:
         "cards"
         "pags";
-    grid-template-rows: auto 10%;
-    height: 100%;
+    grid-template-rows: auto 50px;
 }
 
 main .card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-content: center;
     gap: 10px;
     grid-area: cards;
-
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: white;
 }
 
 main .card-container .card {
-    width: 300px;
+    height: 390px;
     display: flex;
     flex-direction: column;
     text-align: center;
     align-content: center;
+    align-items: center;
     justify-content: space-between;
-    background: white;
-
-}
-
-main .card-container .card .card-img {
+    box-shadow: 
+    2px 2px 5px 1px rgba(0,0,0,0.2),
+    6px 6px 7px 0px rgba(0,0,0,0.2);
+    border-radius: 15px;
     overflow: hidden;
 }
 
+main .card-container .card .card-img {
+    width: 60%;
+    overflow: hidden;
+}
+
+
 main .card-container .card .card-img img {
     width: 100%;
-}
+
+}   
 
 main .card-container .card .card-body {
     display: flex;
     flex-direction: column;
+    background: white;
 }
 
-main .card-container .card .card-body button {
-    align-items: stretch;
+main .card-container .card .card-btns {
+background: black;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+main .card-container .card .card-btns .input-cantidad {
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    border-radius: 15px;
+}
+
+main .card-container .card .card-btns .btn-menos, .btn-mas {
+    border: none;
+    color: white;
+    font-size: 2rem;
+    background: black;
+    padding: 10px;
+}
+main .card-container .card .card-btns .btn-agregar{
+    background-color: yellow;
+    border: none;
+    height: 40px;
+    padding: 10px;
+    margin-right: 10px;
+    font-weight: 600;
+    border-radius: 15px;
 }
 
 main .card-pag {
-    text-align: center;
     grid-area: pags;
     display: flex;
-    justify-content: center
+    justify-content: center;
+    position: relative;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background: black;
 }
 
 main .card-pag a {
@@ -87,14 +152,26 @@ main .card-pag a {
     padding: 7px;
     background: gray;
     border: 1px solid blue;
+    
+
 }
 
 footer {
-    background: blue;
+    background: yellow;
     grid-area: footer;
+    display: flex;
 }
 
 @media (max-width: 575px) {
+    .container {
+        grid-template-areas:
+            "menu"
+            "serch"
+            "main"
+            "footer";
+        grid-template-rows: 10% 10% auto 10%;
+        grid-template-columns: auto;
+    }
 
     #card-2,
     #card-3,
@@ -105,178 +182,17 @@ footer {
     #card-8 {
         display: none;
     }
-}
 
-/* @media (max-width: 576px) {
-    body {
-        background: black;
-    }
-
-    p {
-        font-family: monospace;
-    }
-}
-
-@media (min-width: 575px) {
-    body {
+    menu {
         background: green;
-    }
-
-    p {
-        font-family: fantasy;
-    }
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: center
-}
-
-.grid .card {
-    width: 200px;
-}
-
-.grid .card img {
-    width: 100%;
-}
-
-.grid p {
-    background: #749c2c;
-    color: white;
-    padding: 10px;
-    margin: 10px;
-
-}
-
-@media (min-width: 576px) {
-    .grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (min-width: 768px) {
-    .grid {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-}
-
-@media (min-width: 768px) {
-    .grid {
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    }
-}
-
-nav {
-    padding: 10px;
-    grid-area: menu;
-    background: #0037a1;
-    color: white;
-}
-main {
-    grid-area: main;
-    padding: 10px;
-}
-footer {
-    grid-area:pie;
-    background: #d02a1e;
-    color: white;
-    padding: 10px;
-}
-.grid{
-    display: grid;
-    border: 1px solid black;
-    grid-template-rows: 1fr 10fr 1fr;
-    grid-template-areas: 
-    "menu"
-    "main"
-    "pie";
-}
-@media (min-width: 992px)
-{
-    .grid {
-        grid-template-columns: 1fr 10fr;
-        grid-template-areas: 
-        "menu main"
-        "menu main"
-        "menu pie";
-      
-    }
-}
-
-@media (max-width: 576px) {
-    body {
-        background: black;
-    }
-}
-
-@media (min-width: 576px) {
-    body {
-        background: #749c2c;
-    }
-}
-
-p {
-    color: crimson
-}
-
-@media (min-width: 576px) {
-    p {
-        color: purple
-    }
-}
-
-@media (min-width: 768px) {
-    p {
-        color: green
-    }
-}
-
-@media (min-width: 992px) {
-    p {
-        color: chocolate
-    }
-}
-
-ul {
-    padding: 10px;
-    list-style: none;
-    color: white;
-    background: #749c2c;
-    display: flex;
-    flex-direction: column;
-}
-
-ul li {
-    padding: 5px;
-}
-
-@media (min-width: 576px) {
-    ul {
+        justify-content: space-between;
+        align-items: center;
         flex-direction: row;
-        justify-content: space-around;
     }
-}
-
-@media (min-width: 768px) {
-    ul {
-        justify-content: flex-end;
+    menu .menu-logo {
+        width: 38%;
     }
+
+
 }
 
-.filtros {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-}
-
-.filtros div {
-    margin-bottom: 30px;
-}
-
-@media (min-width: 576px) {
-    .filtros {
-        flex-direction: row;
-        justify-content: space-around;
-    }
-} */
