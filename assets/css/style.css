@@ -235,10 +235,12 @@ main .card-pag a:hover {
         grid-template-rows: 10% 10% auto 10%;
         grid-template-columns: auto;
     }
+
     main .card-container .card {
         height: 75%;
         width: 75%;
     }
+
     #card-2,
     #card-3,
     #card-4,
@@ -267,5 +269,4 @@ main .card-pag a:hover {
         display: flex;
         margin-right: 10%;
     }
-
 }
