@@ -12,7 +12,7 @@
         "menu main"
         "footer main";
     grid-template-rows: 7% auto 8%;
-    grid-template-columns:20% auto;
+    grid-template-columns: 20% auto;
     min-height: 100vh;
 
 }
@@ -236,14 +236,13 @@ main .card-pag a:hover {
     }
 
     main .card-container .card {
-       width: 70%;
-       overflow: hidden;
+        width: 70%;
+        overflow: hidden;
     }
 
     main .card-container .card .card-img img {
         width: 100%;
         overflow: hidden
- 
     }
 
     #card-2,
@@ -286,10 +285,6 @@ main .card-pag a:hover {
         grid-template-columns: 25% auto;
     }
 
-    .cat-titulo {
-        display: none;
-    }
-
     main .card-container {
         flex-wrap: nowrap;
     }
@@ -318,7 +313,7 @@ main .card-pag a:hover {
 
     menu .menu-logo {
         width: 20%;
-        
+
     }
 
     menu .menu img {
@@ -329,12 +324,17 @@ main .card-pag a:hover {
     menu .menu-body {
         display: flex;
         flex-direction: row;
-       
+
+    }
+
+    menu .menu-body .cat-titulo {
+        display: none;
     }
 
     menu .menu-body .categorias {
-      margin-right: 20px;
+        margin-right: 20px;
     }
+
     .serch .container-select select {
 
         padding-left: 10%;
